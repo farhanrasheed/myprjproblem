@@ -18,8 +18,7 @@ namespace Employeeprj.Models
         public SECTION SECTION { get; set; }
 
 
-        public int EMPId { get; set; }
-        public virtual PYEmployee PYEmployee { get; set; }
+ 
 
     }
 }

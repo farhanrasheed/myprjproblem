@@ -29,18 +29,10 @@ namespace Employeeprj.Migrations
                     b.Property<string>("DESC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
                     b.Property<double?>("NAT_CODE")
                         .HasColumnType("float");
 
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.HasKey("NATId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.ToTable("NATIONALITY");
                 });
@@ -61,21 +53,13 @@ namespace Employeeprj.Migrations
                     b.Property<decimal?>("AMOUNT")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
                     b.Property<double?>("EMP_NO")
                         .HasColumnType("float");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("STOP_ID")
                         .HasColumnType("int");
 
                     b.HasKey("ALWId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.ToTable("PYALWs");
                 });
@@ -93,12 +77,6 @@ namespace Employeeprj.Migrations
                     b.Property<string>("DESC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SECId")
                         .HasColumnType("int");
 
@@ -106,8 +84,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("DEPId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.HasIndex("SECTIONSECId");
 
@@ -121,6 +97,12 @@ namespace Employeeprj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ALWId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DEPId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DT_OF_BRTH")
                         .HasColumnType("datetime2");
 
@@ -133,8 +115,47 @@ namespace Employeeprj.Migrations
                     b.Property<string>("NAME")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("NATIONALITYsNATId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NATId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PYALWsALWId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PYDEPTsDEPId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PYSCMSCMId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RANKId")
+                        .HasColumnType("int");
+
                     b.Property<string>("REASON")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SALARY_CHANGESALCHANGEId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SALCHANGEId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SCHId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SCH_CODEsSCHId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SCMId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SECId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SECTIONsSECId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SEX")
                         .HasColumnType("nvarchar(max)");
@@ -143,6 +164,22 @@ namespace Employeeprj.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("EMPId");
+
+                    b.HasIndex("NATIONALITYsNATId");
+
+                    b.HasIndex("PYALWsALWId");
+
+                    b.HasIndex("PYDEPTsDEPId");
+
+                    b.HasIndex("PYSCMSCMId");
+
+                    b.HasIndex("RANKId");
+
+                    b.HasIndex("SALARY_CHANGESALCHANGEId");
+
+                    b.HasIndex("SCH_CODEsSCHId");
+
+                    b.HasIndex("SECTIONsSECId");
 
                     b.ToTable("PYEmployee");
                 });
@@ -157,12 +194,6 @@ namespace Employeeprj.Migrations
                     b.Property<string>("DESC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SCHId")
                         .HasColumnType("int");
 
@@ -173,8 +204,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("SCMId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.HasIndex("SCH_CODESCHId");
 
@@ -188,12 +217,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.Property<double?>("RNK_CODE")
                         .HasColumnType("float");
 
@@ -201,8 +224,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("RANKId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.ToTable("Rank");
                 });
@@ -214,9 +235,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
                     b.Property<double?>("EMP_NO")
                         .HasColumnType("float");
 
@@ -225,9 +243,6 @@ namespace Employeeprj.Migrations
 
                     b.Property<double?>("OLD_BASIC")
                         .HasColumnType("float");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("TRN_DATE")
                         .HasColumnType("datetime2");
@@ -239,8 +254,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SALCHANGEId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.ToTable("SALARY_CHANGE");
                 });
@@ -255,12 +268,6 @@ namespace Employeeprj.Migrations
                     b.Property<string>("BASIC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.Property<double>("SECH_CODE")
                         .HasColumnType("float");
 
@@ -268,8 +275,6 @@ namespace Employeeprj.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SCHId");
-
-                    b.HasIndex("PYEmployeeEMPId");
 
                     b.ToTable("SCH_CODE");
                 });
@@ -284,104 +289,83 @@ namespace Employeeprj.Migrations
                     b.Property<string>("DESC")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EMPId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PYEmployeeEMPId")
-                        .HasColumnType("int");
-
                     b.Property<double?>("SEC_CODE")
                         .HasColumnType("float");
 
                     b.HasKey("SECId");
 
-                    b.HasIndex("PYEmployeeEMPId");
-
                     b.ToTable("SECTION");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.NATIONALITY", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.PYALW", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
                 });
 
             modelBuilder.Entity("Employeeprj.Models.PYDEPT", b =>
                 {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
                     b.HasOne("Employeeprj.Models.SECTION", "SECTION")
                         .WithMany()
                         .HasForeignKey("SECTIONSECId");
 
-                    b.Navigation("PYEmployee");
-
                     b.Navigation("SECTION");
+                });
+
+            modelBuilder.Entity("Employeeprj.Models.PYEmployee", b =>
+                {
+                    b.HasOne("Employeeprj.Models.NATIONALITY", "NATIONALITYs")
+                        .WithMany()
+                        .HasForeignKey("NATIONALITYsNATId");
+
+                    b.HasOne("Employeeprj.Models.PYALW", "PYALWs")
+                        .WithMany()
+                        .HasForeignKey("PYALWsALWId");
+
+                    b.HasOne("Employeeprj.Models.PYDEPT", "PYDEPTs")
+                        .WithMany()
+                        .HasForeignKey("PYDEPTsDEPId");
+
+                    b.HasOne("Employeeprj.Models.PYSCM", "PYSCM")
+                        .WithMany()
+                        .HasForeignKey("PYSCMSCMId");
+
+                    b.HasOne("Employeeprj.Models.Rank", "Rank")
+                        .WithMany()
+                        .HasForeignKey("RANKId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Employeeprj.Models.SALARY_CHANGE", "SALARY_CHANGE")
+                        .WithMany()
+                        .HasForeignKey("SALARY_CHANGESALCHANGEId");
+
+                    b.HasOne("Employeeprj.Models.SCH_CODE", "SCH_CODEs")
+                        .WithMany()
+                        .HasForeignKey("SCH_CODEsSCHId");
+
+                    b.HasOne("Employeeprj.Models.SECTION", "SECTIONs")
+                        .WithMany()
+                        .HasForeignKey("SECTIONsSECId");
+
+                    b.Navigation("NATIONALITYs");
+
+                    b.Navigation("PYALWs");
+
+                    b.Navigation("PYDEPTs");
+
+                    b.Navigation("PYSCM");
+
+                    b.Navigation("Rank");
+
+                    b.Navigation("SALARY_CHANGE");
+
+                    b.Navigation("SCH_CODEs");
+
+                    b.Navigation("SECTIONs");
                 });
 
             modelBuilder.Entity("Employeeprj.Models.PYSCM", b =>
                 {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
                     b.HasOne("Employeeprj.Models.SCH_CODE", "SCH_CODE")
                         .WithMany()
                         .HasForeignKey("SCH_CODESCHId");
 
-                    b.Navigation("PYEmployee");
-
                     b.Navigation("SCH_CODE");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.Rank", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.SALARY_CHANGE", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.SCH_CODE", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
-                });
-
-            modelBuilder.Entity("Employeeprj.Models.SECTION", b =>
-                {
-                    b.HasOne("Employeeprj.Models.PYEmployee", "PYEmployee")
-                        .WithMany()
-                        .HasForeignKey("PYEmployeeEMPId");
-
-                    b.Navigation("PYEmployee");
                 });
 #pragma warning restore 612, 618
         }

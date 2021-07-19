@@ -17,8 +17,6 @@ namespace Employeeprj.Models
         public SCH_CODE SCH_CODE { get; set; }
 
 
-        public int EMPId { get; set; }
-        public virtual PYEmployee PYEmployee { get; set; }
-
+    
     }
 }

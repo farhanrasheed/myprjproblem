@@ -20,9 +20,37 @@ namespace Employeeprj.Models
         public int? STOP_ID { get; set; }
         public string REASON { get; set; }
 
-       
+        public int RANKId { get; set; }
+
+        public Rank Rank { get; set; }
+
+        public int DEPId { get; set; }
+
+        public PYDEPT PYDEPTs { get; set; }
+        public int NATId { get; set; }
+
+        public NATIONALITY NATIONALITYs { get; set; }
+        public int SECId { get; set; }
+
+        public SECTION SECTIONs { get; set; }
+
+        public int ALWId { get; set; }
+
+        public PYALW PYALWs { get; set; }
 
 
+
+        public int SCHId { get; set; }
+
+        public SCH_CODE SCH_CODEs { get; set; }
+
+        public int SCMId { get; set; }
+
+        public PYSCM PYSCM { get; set; }
+
+        public int SALCHANGEId { get; set; }
+
+        public SALARY_CHANGE SALARY_CHANGE { get; set; }
 
     }
 }

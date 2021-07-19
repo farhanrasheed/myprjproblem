@@ -17,8 +17,6 @@ namespace Employeeprj.Models
         public double? NEW_BASIC { get; set; }
         public DateTime TRN_DATE { get; set; }
 
-        public int EMPId { get; set; }
-        public virtual PYEmployee PYEmployee { get; set; }
-
+      
     }
 }

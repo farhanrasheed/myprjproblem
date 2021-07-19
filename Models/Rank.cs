@@ -14,7 +14,6 @@ namespace Employeeprj.Models
         public string RNK_DESC { get; set; }
 
 
-        public int EMPId { get; set; }
-        public virtual PYEmployee PYEmployee { get; set; }
+       
     }
 }

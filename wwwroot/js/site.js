@@ -1,4 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
 
-// Write your JavaScript code.
+function FillRankName()
+{
+    alert("shahid");
+    debugger;
+    var abc = $("#RankDropdown").val();
+    var RankCode = $('#RankDropdown :selected').text();
+  
+    debugger;
+    $.ajax({
+
+        url: "/Employee/GetRankName",
+        type: "GET",
+        dataType: 'json',
+        data: { Id: RankCode },
+
+        success: function (response) {
+          //  alert(response);
+            $("#Name").val(response);
+        },
+        error: function (xhr, status, error) {
+            alert("this code is in error")
+        }
+    });
+}

@@ -3,29 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Employeeprj.Migrations
 {
-    public partial class abcc : Migration
+    public partial class abc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "PYEmployee",
-                columns: table => new
-                {
-                    EMPId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EMP_NO = table.Column<double>(type: "float", nullable: true),
-                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SEX = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    MARITAL_ST = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DT_OF_BRTH = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    STOP_ID = table.Column<int>(type: "int", nullable: true),
-                    REASON = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PYEmployee", x => x.EMPId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "NATIONALITY",
                 columns: table => new
@@ -33,19 +14,11 @@ namespace Employeeprj.Migrations
                     NATId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NAT_CODE = table.Column<double>(type: "float", nullable: true),
-                    DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    DESC = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_NATIONALITY", x => x.NATId);
-                    table.ForeignKey(
-                        name: "FK_NATIONALITY_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,19 +31,11 @@ namespace Employeeprj.Migrations
                     ALW_CODE = table.Column<int>(type: "int", nullable: true),
                     ALW_TYPE = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AMOUNT = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    STOP_ID = table.Column<int>(type: "int", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    STOP_ID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PYALWs", x => x.ALWId);
-                    table.ForeignKey(
-                        name: "FK_PYALWs_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -80,19 +45,11 @@ namespace Employeeprj.Migrations
                     RANKId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RNK_CODE = table.Column<double>(type: "float", nullable: true),
-                    RNK_DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    RNK_DESC = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Rank", x => x.RANKId);
-                    table.ForeignKey(
-                        name: "FK_Rank_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -106,19 +63,11 @@ namespace Employeeprj.Migrations
                     TRN_DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OLD_BASIC = table.Column<double>(type: "float", nullable: true),
                     NEW_BASIC = table.Column<double>(type: "float", nullable: true),
-                    TRN_DATE = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    TRN_DATE = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SALARY_CHANGE", x => x.SALCHANGEId);
-                    table.ForeignKey(
-                        name: "FK_SALARY_CHANGE_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -129,19 +78,11 @@ namespace Employeeprj.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SECH_CODE = table.Column<double>(type: "float", nullable: false),
                     STEP_CODE = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BASIC = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    BASIC = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SCH_CODE", x => x.SCHId);
-                    table.ForeignKey(
-                        name: "FK_SCH_CODE_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -151,19 +92,11 @@ namespace Employeeprj.Migrations
                     SECId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SEC_CODE = table.Column<double>(type: "float", nullable: true),
-                    DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    DESC = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SECTION", x => x.SECId);
-                    table.ForeignKey(
-                        name: "FK_SECTION_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -175,19 +108,11 @@ namespace Employeeprj.Migrations
                     SCM_CODE = table.Column<double>(type: "float", nullable: true),
                     DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SCHId = table.Column<int>(type: "int", nullable: false),
-                    SCH_CODESCHId = table.Column<int>(type: "int", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    SCH_CODESCHId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PYSCM", x => x.SCMId);
-                    table.ForeignKey(
-                        name: "FK_PYSCM_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PYSCM_SCH_CODE_SCH_CODESCHId",
                         column: x => x.SCH_CODESCHId,
@@ -205,19 +130,11 @@ namespace Employeeprj.Migrations
                     DEP_CODE = table.Column<double>(type: "float", nullable: true),
                     DESC = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SECId = table.Column<int>(type: "int", nullable: false),
-                    SECTIONSECId = table.Column<int>(type: "int", nullable: true),
-                    EMPId = table.Column<int>(type: "int", nullable: false),
-                    PYEmployeeEMPId = table.Column<int>(type: "int", nullable: true)
+                    SECTIONSECId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_PYDEPT", x => x.DEPId);
-                    table.ForeignKey(
-                        name: "FK_PYDEPT_PYEmployee_PYEmployeeEMPId",
-                        column: x => x.PYEmployeeEMPId,
-                        principalTable: "PYEmployee",
-                        principalColumn: "EMPId",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PYDEPT_SECTION_SECTIONSECId",
                         column: x => x.SECTIONSECId,
@@ -226,20 +143,87 @@ namespace Employeeprj.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_NATIONALITY_PYEmployeeEMPId",
-                table: "NATIONALITY",
-                column: "PYEmployeeEMPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PYALWs_PYEmployeeEMPId",
-                table: "PYALWs",
-                column: "PYEmployeeEMPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PYDEPT_PYEmployeeEMPId",
-                table: "PYDEPT",
-                column: "PYEmployeeEMPId");
+            migrationBuilder.CreateTable(
+                name: "PYEmployee",
+                columns: table => new
+                {
+                    EMPId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EMP_NO = table.Column<double>(type: "float", nullable: true),
+                    NAME = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SEX = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MARITAL_ST = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DT_OF_BRTH = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    STOP_ID = table.Column<int>(type: "int", nullable: true),
+                    REASON = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RANKId = table.Column<int>(type: "int", nullable: false),
+                    DEPId = table.Column<int>(type: "int", nullable: false),
+                    PYDEPTsDEPId = table.Column<int>(type: "int", nullable: true),
+                    NATId = table.Column<int>(type: "int", nullable: false),
+                    NATIONALITYsNATId = table.Column<int>(type: "int", nullable: true),
+                    SECId = table.Column<int>(type: "int", nullable: false),
+                    SECTIONsSECId = table.Column<int>(type: "int", nullable: true),
+                    ALWId = table.Column<int>(type: "int", nullable: false),
+                    PYALWsALWId = table.Column<int>(type: "int", nullable: true),
+                    SCHId = table.Column<int>(type: "int", nullable: false),
+                    SCH_CODEsSCHId = table.Column<int>(type: "int", nullable: true),
+                    SCMId = table.Column<int>(type: "int", nullable: false),
+                    PYSCMSCMId = table.Column<int>(type: "int", nullable: true),
+                    SALCHANGEId = table.Column<int>(type: "int", nullable: false),
+                    SALARY_CHANGESALCHANGEId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PYEmployee", x => x.EMPId);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_NATIONALITY_NATIONALITYsNATId",
+                        column: x => x.NATIONALITYsNATId,
+                        principalTable: "NATIONALITY",
+                        principalColumn: "NATId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_PYALWs_PYALWsALWId",
+                        column: x => x.PYALWsALWId,
+                        principalTable: "PYALWs",
+                        principalColumn: "ALWId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_PYDEPT_PYDEPTsDEPId",
+                        column: x => x.PYDEPTsDEPId,
+                        principalTable: "PYDEPT",
+                        principalColumn: "DEPId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_PYSCM_PYSCMSCMId",
+                        column: x => x.PYSCMSCMId,
+                        principalTable: "PYSCM",
+                        principalColumn: "SCMId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_Rank_RANKId",
+                        column: x => x.RANKId,
+                        principalTable: "Rank",
+                        principalColumn: "RANKId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_SALARY_CHANGE_SALARY_CHANGESALCHANGEId",
+                        column: x => x.SALARY_CHANGESALCHANGEId,
+                        principalTable: "SALARY_CHANGE",
+                        principalColumn: "SALCHANGEId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_SCH_CODE_SCH_CODEsSCHId",
+                        column: x => x.SCH_CODEsSCHId,
+                        principalTable: "SCH_CODE",
+                        principalColumn: "SCHId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_PYEmployee_SECTION_SECTIONsSECId",
+                        column: x => x.SECTIONsSECId,
+                        principalTable: "SECTION",
+                        principalColumn: "SECId",
+                        onDelete: ReferentialAction.Restrict);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_PYDEPT_SECTIONSECId",
@@ -247,38 +231,56 @@ namespace Employeeprj.Migrations
                 column: "SECTIONSECId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PYSCM_PYEmployeeEMPId",
-                table: "PYSCM",
-                column: "PYEmployeeEMPId");
+                name: "IX_PYEmployee_NATIONALITYsNATId",
+                table: "PYEmployee",
+                column: "NATIONALITYsNATId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_PYALWsALWId",
+                table: "PYEmployee",
+                column: "PYALWsALWId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_PYDEPTsDEPId",
+                table: "PYEmployee",
+                column: "PYDEPTsDEPId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_PYSCMSCMId",
+                table: "PYEmployee",
+                column: "PYSCMSCMId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_RANKId",
+                table: "PYEmployee",
+                column: "RANKId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_SALARY_CHANGESALCHANGEId",
+                table: "PYEmployee",
+                column: "SALARY_CHANGESALCHANGEId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_SCH_CODEsSCHId",
+                table: "PYEmployee",
+                column: "SCH_CODEsSCHId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PYEmployee_SECTIONsSECId",
+                table: "PYEmployee",
+                column: "SECTIONsSECId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PYSCM_SCH_CODESCHId",
                 table: "PYSCM",
                 column: "SCH_CODESCHId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Rank_PYEmployeeEMPId",
-                table: "Rank",
-                column: "PYEmployeeEMPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SALARY_CHANGE_PYEmployeeEMPId",
-                table: "SALARY_CHANGE",
-                column: "PYEmployeeEMPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SCH_CODE_PYEmployeeEMPId",
-                table: "SCH_CODE",
-                column: "PYEmployeeEMPId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SECTION_PYEmployeeEMPId",
-                table: "SECTION",
-                column: "PYEmployeeEMPId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "PYEmployee");
+
             migrationBuilder.DropTable(
                 name: "NATIONALITY");
 
@@ -302,9 +304,6 @@ namespace Employeeprj.Migrations
 
             migrationBuilder.DropTable(
                 name: "SCH_CODE");
-
-            migrationBuilder.DropTable(
-                name: "PYEmployee");
         }
     }
 }

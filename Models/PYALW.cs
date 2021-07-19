@@ -17,7 +17,6 @@ namespace Employeeprj.Models
         public int? STOP_ID { get; set; }
 
 
-        public int EMPId { get; set; }
-        public virtual PYEmployee PYEmployee { get; set; }
+    
     }
 }
