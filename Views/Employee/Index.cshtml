@@ -1,49 +1,151 @@
 ﻿@model IEnumerable<Employeeprj.Models.PYEmployee>
-<form>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Emp Code</label>
-            <input type="number" class="form-control" id="EmpCode" placeholder="Email">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Emp Name</label>
-            <input type="text" class="form-control" id="EmpName" placeholder="Password">
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="inputAddress">Rank Code</label>
-        @*<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">*@
-        @Html.DropDownList("RANKId", (IEnumerable<SelectListItem>)ViewBag.RankList, "Select Rank", new { @class = "form-control",@onchange = "FillRankName()", @id="RankDropdown" })
 
+
+<div class="form-row">
+
+    <div class="col-2">
+        <label class="control-label" for="Enter Code">Emp Code</label>
+        <input type="text" class="form-control" id="EmpCode" placeholder="EmpCode">
     </div>
-    <div class="form-group">
+    <div class="col-6">
+        <label class="control-label" for="Enter Name">Emp Name</label>
+        <input type="text" class="form-control" id="EmpName" placeholder="EmpName">
+    </div>
+</div>
+
+<div class="form-row" style="margin-bottom:10px;margin-top:10px">
+    <div class="col-2">
+        <label class="control-label" for="inputAddress">Rank Code</label>
+        @Html.DropDownList("RANKId", (IEnumerable<SelectListItem>)ViewBag.RankList, "Select Rank", new { @class = "form-control", @onchange = "FillRankName()", @id = "RankDropdown" })
+    </div>
+
+    <div class="col-6">
         <label>Rank Name</label>
         <input type="text" class="form-control" name="RNK_DESC" id="Name" disabled>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
+</div>
+<div class="form-row" id="Gender" style="margin-bottom:15px;margin-top:15px">
+    <div class="col-2">
+        <select class="form-control">
+            <option value=””>Select Gender</option>
+            <option value=””>Male</option>
+            <option value=””>Female</option>
+        </select>
+    </div>
+    <div class="col-3">
+        <!-- Default radio -->
+        <div class="form-check" id="Status">
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="flexRadioDefault2"
+                   checked />
+            <label class="form-check-label" for="flexRadioDefault2"> Single </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input"
+                   type="radio"
+                   name="flexRadioDefault"
+                   id="flexRadioDefault1" />
+            <label class="form-check-label" for="flexRadioDefault1"> Married </label>
         </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
-            </select>
+
+    </div>
+    <div class="col-3">
+        <div>
+            <input name="DueDate" type="date" id="datepicker" class="form-control" />
+
         </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
+        <!--<div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker">
+            <input placeholder="Select date" type="text" id="example" class="form-control">-->
+        @*<label for="example">Try me...</label>*@
+        <!--<i class="fas fa-calendar input-prefix" tabindex=0></i>
+        </div>-->
+    </div>
+</div>
+<div class="form-row" id="SalaryStatus" style="margin-bottom:15px;margin-top:15px">
+    <div class="col-2">
+        <label for="SalaryStatus">Salary Status</label>
+        <select class="form-control">
+            <option value=””>Select Salary Status</option>
+            <option value="0">0 - OK</option>
+            <option value="1">1 - Stop</option>
+            <option value="2">2 - For Further Stop</option>
+        </select>
+    </div>
+
+    <div class="col-2">
+        <label for="inputAddress">Nationality Code</label>
+        @Html.DropDownList("NATId", (IEnumerable<SelectListItem>)ViewBag.NationalityList, "Select Nationality", new { @class = "form-control", @onchange = "FillNationalityName()", @id = "NationalityDropdown" })
+
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label>Nationality Name</label>
+            <input type="text" class="form-control" id="NationalName" disabled>
         </div>
     </div>
-    <div class="form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                Check me out
-            </label>
+</div>
+<div class="form-row" style="margin-bottom:15px;margin-top:15px">
+
+    <div class="col-2">
+        <label for="inputAddress">Department Code</label>
+        @Html.DropDownList("DEPId", (IEnumerable<SelectListItem>)ViewBag.DepartmentList, "Select Department", new { @class = "form-control", @onchange = "FillDepartmentName()", @id = "DepartmentDropdown" })
+
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label>Department Name</label>
+            <input type="text" class="form-control" id="DeptName" disabled>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
+</div>
+<div class="form-row" style="margin-bottom:15px;margin-top:15px">
+
+    <div class="col-2">
+        <label for="inputAddress">Pay Scale</label>
+        @Html.DropDownList("SCHId", (IEnumerable<SelectListItem>)ViewBag.PYAmount, "Select PayScale", new { @class = "form-control", @onchange = "FillPayScale()", @id = "PayScale" })
+
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="text" class="form-control" id="Amount" disabled>
+        </div>
+    </div>
+
+</div>
+<div class="row" style="margin-bottom:5px">
+    <div class="col-3">
+        <label>Section</label>
+        <input type="text" id="Section" class="form-control" onchange="FillSectionName()" />
+
+    </div>
+    <div class="col-3">
+        <label>Name</label>
+        <input type="text" id="SectionName" class="form-control" disabled />
+
+    </div>
+
+</div>
+<div class="form-row">
+
+    <div class="col-8">
+        <label class="control-label" for="Enter Code">Remarks</label>
+        <input type="text" class="form-control" id="Remarks" placeholder="Remarks">
+    </div>
+
+</div>
+
+<button type="submit" id="create" class="btn btn-primary" style="margin-top:15px;margin-bottom:15px;">Create Data</button>
+@*<button id="editButton" class="btn btn-outline-primary" onclick="EditButtonClick(@item.Allowid)">Edit</button>*@
+
+
+@*<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>*@
+

@@ -10,7 +10,7 @@ namespace Employeeprj.Models
     {
         [Key]
         public int SCHId { get; set; }
-        public double SECH_CODE { get; set; }
+        public double? SECH_CODE { get; set; }
         public string STEP_CODE { get; set; }
         public string BASIC { get; set; }
 

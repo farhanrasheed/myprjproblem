@@ -7,22 +7,19 @@ using System.Threading.Tasks;
 
 namespace Employeeprj.Models
 {
-    public class PYALW
+    public class PYALLOW_SCALE
     {
         [Key]
-        public int ALWId { get; set; }
-        public double? EMP_NO { get; set; }
-        public string ALW_CODE { get; set; }
-        public string  ALW_TYPE { get; set; }
+        public int ALLOWSCHId { get; set; }
+        public double? ALW_CODE { get; set; }
+        public string ALW_TYPE { get; set; }
         public decimal AMOUNT { get; set; }
         public int? STOP_ID { get; set; }
-        public int EmpId { get; set; }
-
-        [ForeignKey(nameof(EmpId))]
-        public virtual PYEmployee PYEmployee { get; set; }
 
 
-
+        public int? RANKId { get; set; }
+        [ForeignKey(nameof(RANKId))]
+        public Rank Rank { get; set; }
 
     }
 }

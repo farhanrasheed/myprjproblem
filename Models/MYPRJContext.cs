@@ -13,7 +13,7 @@ namespace Employeeprj.Models
 
         }
         public DbSet<PYEmployee> PYEmployee { get; set; }
-        public DbSet<PYALW> PYALWs { get; set; }
+        public DbSet<PYALW> PYALW { get; set; }
         public DbSet<PYDEPT> PYDEPT { get; set; }
         public DbSet<SECTION> SECTION { get; set; }
         public DbSet<Rank> Rank { get; set; }
@@ -21,6 +21,8 @@ namespace Employeeprj.Models
         public DbSet<PYSCM> PYSCM { get; set; }
         public DbSet<SCH_CODE> SCH_CODE { get; set; }
         public DbSet<SALARY_CHANGE> SALARY_CHANGE { get; set; }
+
+        public DbSet<PYALLOW_SCALE> PYALLOW_SCALE { get; set; }
 
     }
 }

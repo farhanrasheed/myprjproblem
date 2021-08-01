@@ -11,7 +11,7 @@ namespace Employeeprj.Models
         [Key]
         public int SECId { get; set; }
         public double? SEC_CODE { get; set; }
-        public string DESC { get; set; }
+        public string DESCRIPTION { get; set; }
 
 
 

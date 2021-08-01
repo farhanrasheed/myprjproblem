@@ -11,7 +11,7 @@ namespace Employeeprj.Models
         [Key]
         public int NATId { get; set; }
         public double? NAT_CODE { get; set; }
-        public string DESC { get; set; }
+        public string DESCRIPTION { get; set; }
 
 
 
